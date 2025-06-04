@@ -1,12 +1,13 @@
 import {
     Card,
     CardContent,
+    //   CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { Button } from '@/components/ui/button'
-import { CalendarClock, FileUser, Github, Linkedin } from "lucide-react"
+import { CalendarClock, FileUser, Github, Linkedin} from "lucide-react"
 
 
 function ProfileCard() {
@@ -14,6 +15,7 @@ function ProfileCard() {
         <Card className='h-fit gap-5 py-4 lg:sticky top-24 z-30'>
             <CardHeader className="gap-0">
                 <CardTitle className="text-center sm:text-left">Sanchit Pandey</CardTitle>
+                {/* <CardDescription>Card Description</CardDescription> */}
             </CardHeader>
             <CardContent>
                 <p className="text-center sm:text-left text-muted-foreground tracking-tight text-sm">👋 Hi, I'm Sanchit, My strong programming, algorithm, and software skills in Python, Java, C++ fuel my passion for tackling tough problems and building cool solutions. Project-tested in coding and teamwork – ready to dive into dynamic tech and grow!</p>
@@ -30,7 +32,7 @@ function ProfileCard() {
                 </Button>
                 <Button className='w-full sm:flex-1 lg:flex-1 rounded-full' asChild>
                     <a href="https://www.linkedin.com/in/sanchitp/" target="_blank">
-                        <Linkedin />
+                        <Linkedin/>
                         <p className="sm:hidden md:block">
                             LinkedIn
                         </p>

@@ -1,6 +1,10 @@
 import {
     Card,
     CardContent,
+    // CardDescription,
+    // CardFooter,
+    // CardHeader,
+    // CardTitle,
 } from "@/components/ui/card"
 import {
     AlertDialog,
@@ -27,6 +31,10 @@ function Contact() {
             <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
             <div className="space-y-4 sm:space-y-6 mt-5">
                 <Card>
+                    {/* <CardHeader> */}
+                    {/* <CardTitle>Card Title</CardTitle> */}
+                    {/* <CardDescription>Card Description</CardDescription> */}
+                    {/* </CardHeader> */}
                     <CardContent className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-1.5 md:items-center  justify-between">
                         <p className="text-sm text-center sm:text-left text-muted-foreground">
                             {`Best way to reach me is through: `}
@@ -49,6 +57,9 @@ function Contact() {
                             </AlertDialogContent>
                         </AlertDialog>
                     </CardContent>
+                    {/* <CardFooter>
+            <p>Card Footer</p>
+          </CardFooter> */}
                 </Card>
             </div>
         </>

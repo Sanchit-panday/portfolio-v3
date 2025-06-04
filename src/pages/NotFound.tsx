@@ -92,6 +92,7 @@ const NotFound = () => {
             </AlertDialog>
           </div>
         </CardContent>
+        {/* <CardFooter/ >s */}
       </Card>
     </div>
   );

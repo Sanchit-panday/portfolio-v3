@@ -7,8 +7,10 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
+  // DrawerDescription,
   DrawerFooter,
   DrawerHeader,
+  // DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
 
@@ -16,6 +18,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  // CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -30,12 +33,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+// import { Calendar } from "@/components/ui/calendar"
+
+
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ChevronDown, Mail, Copy, House, Presentation, Briefcase, Twitter } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+// import CommandBox from "../features/CommandBox";
 
 import morty from "@/assets/images/Morty.png";
 
@@ -54,6 +61,10 @@ function Navbar() {
     });
   };
 
+  // calender handler
+  // const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+
   //--- About Me ---
 
   const features = [
@@ -66,7 +77,7 @@ function Navbar() {
 
   function MyListComponent({ items }: { items: string[] }) {
     return (
-      <ul className="list-disc list-outside text-blue-500 pl-4">
+      <ul className="list-disc list-outside text-blue-500 pl-4"> {/* Tailwind classes for styling */}
         {items.map((item, index) => (
           <li key={index} className="text-gray-700">{item}</li>
         ))}
@@ -85,7 +96,9 @@ function Navbar() {
         {/* -- Drawer Content Starts Here -- */}
         <DrawerContent>
           <DrawerHeader className="flex-row justify-center">
-
+            {/* 
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
             {/* --- First Card --- */}
             <Card className="w-60 hidden md:block">
               <CardHeader>
@@ -95,6 +108,9 @@ function Navbar() {
               <CardContent>
                 <MyListComponent items={features} />
               </CardContent>
+              {/* <CardFooter>
+                <p>Card Footer</p>
+              </CardFooter> */}
             </Card>
 
             {/* --- Middle Card --- */}
@@ -111,10 +127,14 @@ function Navbar() {
                 <CardDescription>
                   <p className="hidden md:block">You found a special Area! 🥳🎉</p>
                   <span className="block md:hidden lg:hidden xl:hidden 2xl:hidden">
-                    <MyListComponent items={features} />
+                  <MyListComponent items={features} />
                   </span>
                 </CardDescription>
               </CardHeader>
+
+              <CardContent>
+
+              </CardContent>
             </Card>
 
             {/* ---third card --- */}
@@ -164,12 +184,51 @@ function Navbar() {
                     <Twitter />
                   </a>
                 </Button>
+                {/* <Dialog >
+                  <DialogTrigger asChild></DialogTrigger>
+                  <DialogContent className="sm:max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Book an Appointment</DialogTitle>
+                      <DialogDescription>
+                        Book an appointment between us
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex items-center space-x-2">
+                      <div className="grid flex-1 gap-2">
+                        <Label htmlFor="link" className="sr-only">
+                          Link
+                        </Label>
+                        <Input
+                          id="link"
+                          value={email}
+                          readOnly
+                        />
+                      </div>
+                      <Button type="submit" size="sm" className="px-3" onClick={handleCopy}>
+                        <span className="sr-only">Copy</span>
+                        <Copy />
+                      </Button>
+                    </div>
+                    <DialogFooter className="sm:justify-start">
+                      <DialogClose asChild>
+                        <Button type="button" variant="secondary">
+                          Close
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog> */}
+
               </CardContent>
+              {/* <CardFooter>
+                <p>Card Footer</p>
+              </CardFooter> */}
             </Card>
 
 
           </DrawerHeader>
           <DrawerFooter>
+            {/* <Button>Submit</Button> */}
             <DrawerClose>
               <Button variant="destructive" size="icon" className="rounded-full bg-white border-1 border-black color-black hover:bg-red-600"><ChevronDown color="black" /></Button>
             </DrawerClose>
@@ -177,6 +236,7 @@ function Navbar() {
         </DrawerContent>
       </Drawer>
       <div className="flex gap-3">
+        {/* <CommandBox /> */}
         <Button variant={"outline"} onClick={scrollToTop}><House />
           <span className="hidden md:block">
             Home
