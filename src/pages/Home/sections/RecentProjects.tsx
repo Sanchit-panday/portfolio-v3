@@ -44,6 +44,7 @@ function RecentProjectCard({ title, description, logoAddress, linkToProject, lin
             {/* <CardContent> 
                         <p>Card Content</p>
                     </CardContent> */}
+                    {logoAddress}
             <CardFooter className="space-y-2 space-x-0 sm:space-y-0 sm:space-x-2 flex-col sm:flex-row">
                 <Button className="w-full sm:flex-2" asChild>
                     <a href={linkToProject} target="_blank"><SquareArrowOutUpRight size={14} /> Go to Project</a>

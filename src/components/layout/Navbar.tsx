@@ -35,12 +35,9 @@ import {
 } from "@/components/ui/dialog"
 import {
   DropdownMenu,
-  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -48,7 +45,7 @@ import {
 
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ChevronDown, Mail, Copy, House, Presentation, Briefcase, Twitter, Lightbulb, Cat, Dog, PawPrint } from "lucide-react"
+import { ChevronDown, Mail, Copy, House, Presentation, Briefcase, Twitter, Cat, Dog, PawPrint } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -91,7 +88,7 @@ function Navbar() {
     );
   }
 
-  const [position, setPosition] = React.useState("bottom")
+  // const [position, setPosition] = React.useState("bottom")
   return (
     <Badge variant="outline" className="flex flex-col space-y-1 sm:space-y-0 sm:flex-row w-full justify-between p-3 sticky top-0 z-50 bg-white shadow-xs h-fit">
       {/* --- Name Tag --- */}

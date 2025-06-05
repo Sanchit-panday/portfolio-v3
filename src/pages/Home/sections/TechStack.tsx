@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/tooltip"
 import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
-import { useEffect, useState } from "react"
+import { 
+  // useEffect,
+   useState } from "react"
+
 
 import { Howl } from 'howler';
 import track1 from "@/assets/audio/xylophone_1.ogg"
@@ -150,46 +153,46 @@ function TechStack() {
 }
 export default TechStack
 
-const useFontCycler = () => {
-  useEffect(() => {
-    const fonts = [
-      "rubik burned, serif",
-      "rock 3d, cursive",
-      "nosifer, sans-serif",
-      "lacquer, monospace",
-    ];
-    const delay = 2500; // 5 seconds pause
-    const interval = 130; // 190ms per font switch
-    const repeat = 3; // number of full cycles
-    const totalSteps = fonts.length * repeat;
+// const useFontCycler = () => {
+//   useEffect(() => {
+//     const fonts = [
+//       "rubik burned, serif",
+//       "rock 3d, cursive",
+//       "nosifer, sans-serif",
+//       "lacquer, monospace",
+//     ];
+//     const delay = 2500; // 5 seconds pause
+//     const interval = 130; // 190ms per font switch
+//     const repeat = 3; // number of full cycles
+//     const totalSteps = fonts.length * repeat;
 
-    let index = 0;
-    let intervalId: NodeJS.Timeout;
-    let timeoutId: NodeJS.Timeout;
+//     let index = 0;
+//     let intervalId: NodeJS.Timeout;
+//     let timeoutId: NodeJS.Timeout;
 
-    const startCycle = () => {
-      index = 0;
-      intervalId = setInterval(() => {
-        const span = document.getElementById("design_text");
-        if (span) {
-          span.style.fontFamily = fonts[index % fonts.length];
-        }
-        index++;
+//     const startCycle = () => {
+//       index = 0;
+//       intervalId = setInterval(() => {
+//         const span = document.getElementById("design_text");
+//         if (span) {
+//           span.style.fontFamily = fonts[index % fonts.length];
+//         }
+//         index++;
 
-        if (index >= totalSteps) {
-          clearInterval(intervalId);
-          timeoutId = setTimeout(startCycle, delay); // wait 5s and restart
-        }
-      }, interval);
-    };
+//         if (index >= totalSteps) {
+//           clearInterval(intervalId);
+//           timeoutId = setTimeout(startCycle, delay); // wait 5s and restart
+//         }
+//       }, interval);
+//     };
 
-    // Initial delay before starting the first cycle
-    timeoutId = setTimeout(startCycle, delay);
+//     // Initial delay before starting the first cycle
+//     timeoutId = setTimeout(startCycle, delay);
 
-    return () => {
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
-    };
-  }, []);
+//     return () => {
+//       clearInterval(intervalId);
+//       clearTimeout(timeoutId);
+//     };
+//   }, []);
 };
 
