@@ -20,6 +20,8 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        none: "",
+        nfs_effect: "hover:z-[2] cursor-pointer rounded-md border bg-white p-3 ring-[#e5e226] transition-shadow hover:border-transparent hover:ring-3 hover:drop-shadow-lg hover:drop-shadow-amber-300/100 before:content-[''] before:absolute before:z-[-1] before:border-t-[5px] before:border-r-[30px] before:border-b-[5px] before:border-l-[0px] before:top-0 before:left-[-30px] before:border-t-transparent before:border-r-[#333] before:border-b-transparent before:border-l-transparent before:rotate-30"
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

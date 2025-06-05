@@ -9,62 +9,15 @@ import {
 import { Github, SquareArrowOutUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button'
 
+import projectData from '../data/projectData.json'
+
 
 function RecentProjects() {
     return (
         <>
             <h2 className="text-2xl font-semibold tracking-tight">Latest Projects</h2>
             <div className="space-y-4 sm:space-y-6 mt-5">
-                {/* --- 1 of 3 Project --- */}
-                {/* <Button> */}
-                <Card>
-                    <CardHeader>
-                        <CardTitle className="flex gap-x-1 items-center">IFFCO_SCM_2024</CardTitle>
-                        <CardDescription>Developed a web application with Django, Bootstrap, and REST APIs to optimize IFFCO's supply chain. Features included real-time inventory tracking, demand forecasting, order processing, and logistics management, enhancing operational efficiency and data visibility.</CardDescription>
-                    </CardHeader>
-                    {/* <CardContent> 
-                        <p>Card Content</p>
-                    </CardContent> */}
-                    <CardFooter className="space-y-2 space-x-0 sm:space-y-0 sm:space-x-2 flex-col sm:flex-row">
-                        <Button className="w-full sm:flex-2" asChild>
-                            <a href="https://iffcoscm.netlify.app/" target="_blank"><SquareArrowOutUpRight size={14} /> Go to Project</a>
-                        </Button>
-                        <Button className="w-full sm:flex-1" asChild>
-                            <a href="https://github.com/Sanchit-panday/IFFCO_SCM_2024" target="_blank"><Github size={14} />View on Github</a>
-                        </Button>
-                    </CardFooter>
-                </Card>
-                {/* </Button> */}
-
-
-                {/* --- 2 of 3 Project --- */}
-
-                <Card className="hidden">
-                    <CardHeader>
-                        <CardTitle className="flex gap-x-1 items-center">IFFCO_SCM_2024 <SquareArrowOutUpRight size={14} /></CardTitle>
-                        <CardDescription>Developed a web application with Django, Bootstrap, and REST APIs to optimize IFFCO's supply chain. Features included real-time inventory tracking, demand forecasting, order processing, and logistics management, enhancing operational efficiency and data visibility.</CardDescription>
-                    </CardHeader>
-                    {/* <CardContent>
-                        <p>Card Content</p>
-                    </CardContent>
-                    <CardFooter>
-                        <p>Card Footer</p>
-                    </CardFooter> */}
-                </Card>
-
-                {/* --- 3 of 3 Project --- */}
-                <Card className="hidden">
-                    <CardHeader>
-                        <CardTitle className="flex gap-x-1 items-center">IFFCO_SCM_2024 <SquareArrowOutUpRight size={14} /></CardTitle>
-                        <CardDescription>Developed a web application with Django, Bootstrap, and REST APIs to optimize IFFCO's supply chain. Features included real-time inventory tracking, demand forecasting, order processing, and logistics management, enhancing operational efficiency and data visibility.</CardDescription>
-                    </CardHeader>
-                    {/* <CardContent>
-                        <p>Card Content</p>
-                    </CardContent>
-                    <CardFooter>
-                        <p>Card Footer</p>
-                    </CardFooter> */}
-                </Card>
+                <Projects count={3} />
             </div>
 
         </>
@@ -72,3 +25,46 @@ function RecentProjects() {
 }
 
 export default RecentProjects
+
+type ProjectProps = {
+    title: string;
+    logoAddress?: string;
+    description?: string;
+    linkToProject?: string;
+    linkToCode?: string;
+};
+
+function RecentProjectCard({ title, description, logoAddress, linkToProject, linkToCode }: ProjectProps) {
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex gap-x-1 items-center">{title}</CardTitle>
+                <CardDescription>{description}</CardDescription>
+            </CardHeader>
+            {/* <CardContent> 
+                        <p>Card Content</p>
+                    </CardContent> */}
+            <CardFooter className="space-y-2 space-x-0 sm:space-y-0 sm:space-x-2 flex-col sm:flex-row">
+                <Button className="w-full sm:flex-2" asChild>
+                    <a href={linkToProject} target="_blank"><SquareArrowOutUpRight size={14} /> Go to Project</a>
+                </Button>
+                <Button className="w-full sm:flex-1" asChild>
+                    <a href={linkToCode} target="_blank"><Github size={14} />View on Github</a>
+                </Button>
+            </CardFooter>
+        </Card>
+    )
+}
+
+function Projects({ count }: { count: number }) {
+    if (typeof count !== "number") {
+        throw new Error("The 'count' prop is required for <Projects /> and must be a number.");
+    }
+    return (
+        <>
+            {projectData.slice(0, count).map((project, idx) => (
+                <RecentProjectCard key={idx} {...project} />
+            ))}
+        </>
+    );
+}

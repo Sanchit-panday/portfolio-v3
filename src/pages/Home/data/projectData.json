@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Synapse Book",
+    "logoAddress": "/logos/portfolio.png",
+    "description": "Note taking web app build with GO and react",
+    "linkToProject": "https://synapsebook.onrender.com/",
+    "linkToCode": "https://github.com/Sanchit-panday/SynapseBook"
+  },
+  {
+    "title": "Web Crawler",
+    "logoAddress": "/logos/task-manager.png",
+    "description": "web crawler",
+    "linkToProject": "https://github.com/Sanchit-panday/web-crawler",
+    "linkToCode": "https://github.com/Sanchit-panday/web-crawler"
+  },
+  {
+    "title": "Grid Sweeper",
+    "logoAddress": "/logos/blog.png",
+    "description": "Game made with Unity2D",
+    "linkToProject": "https://github.com/Sanchit-panday/GridSweeper",
+    "linkToCode": "https://github.com/Sanchit-panday/GridSweeper"
+  }
+]

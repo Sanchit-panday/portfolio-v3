@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
@@ -33,12 +33,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-// import { Calendar } from "@/components/ui/calendar"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ChevronDown, Mail, Copy, House, Presentation, Briefcase, Twitter } from "lucide-react"
+import { ChevronDown, Mail, Copy, House, Presentation, Briefcase, Twitter, Lightbulb, Cat, Dog, PawPrint } from "lucide-react"
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -61,10 +71,6 @@ function Navbar() {
     });
   };
 
-  // calender handler
-  // const [date, setDate] = React.useState<Date | undefined>(new Date())
-
-
   //--- About Me ---
 
   const features = [
@@ -84,8 +90,10 @@ function Navbar() {
       </ul>
     );
   }
+
+  const [position, setPosition] = React.useState("bottom")
   return (
-    <Badge variant="outline" className="sm:flex-row w-full justify-between p-3 sticky top-0 z-50 bg-white shadow-xs h-fit">
+    <Badge variant="outline" className="flex flex-col space-y-1 sm:space-y-0 sm:flex-row w-full justify-between p-3 sticky top-0 z-50 bg-white shadow-xs h-fit">
       {/* --- Name Tag --- */}
       <Drawer>
         <DrawerTrigger className="text-sm" asChild>
@@ -93,8 +101,9 @@ function Navbar() {
             Sanchit.
           </Badge>
         </DrawerTrigger>
+
         {/* -- Drawer Content Starts Here -- */}
-        <DrawerContent>
+        <DrawerContent className="hidden">
           <DrawerHeader className="flex-row justify-center">
             {/* 
             <DrawerTitle>Are you absolutely sure?</DrawerTitle>
@@ -127,7 +136,7 @@ function Navbar() {
                 <CardDescription>
                   <p className="hidden md:block">You found a special Area! 🥳🎉</p>
                   <span className="block md:hidden lg:hidden xl:hidden 2xl:hidden">
-                  <MyListComponent items={features} />
+                    <MyListComponent items={features} />
                   </span>
                 </CardDescription>
               </CardHeader>
@@ -257,6 +266,26 @@ function Navbar() {
             Contact
           </span>
         </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button id="actionButton" variant={"outline"}><Dog /></Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuGroup>
+              <DropdownMenuItem>
+                Cat
+                <DropdownMenuShortcut><Cat /></DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                Dog
+                <DropdownMenuShortcut><Dog /></DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>System
+                <DropdownMenuShortcut><PawPrint /></DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </Badge >
 
