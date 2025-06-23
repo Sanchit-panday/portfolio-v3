@@ -28,7 +28,7 @@ function Contact() {
     };
     return (
         <>
-            <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
+            <h2 className="text-2xl font-semibold tracking-tight dark:text-primary">Contact</h2>
             <div className="space-y-4 sm:space-y-6 mt-5">
                 <Card>
                     {/* <CardHeader> */}

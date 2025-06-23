@@ -66,30 +66,30 @@ function TechStack() {
   // useFontCycler();
   return (
     <section id='home' className='space-y-5'>
-      <h1 className="text-center sm:text-left scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl lowercase leading-none ">
+      <h1 className="text-center sm:text-left scroll-m-20 text-xl font-bold tracking-tight lg:text-2xl lowercase leading-none dark:text-primary">
         <span className="font-['rubik_burned']">d<span className="text-4xl uppercase">e</span>veloper</span>, <span className="font-['lacquer']">illu<span className="text-4xl uppercase">s</span>trator</span>, <span id="design_text" className="font-['Rock_3D'] text-4xl">st<span className="text-4xl uppercase">u</span>dent</span> and i...
       </h1>
-      <h2 className="text-center sm:text-left font-bold tracking-tight transition-colors">
+      <h2 className="text-center sm:text-left font-bold tracking-tight dark:text-primary">
         Learning something new everyday
       </h2>
       <Separator />
       <div className='flex flex-col sm:flex-row space-y-4 sm:space-y-0 justify-between items-center text-center sm:text-left'>
         <div className="space-y-1">
-          <h3 className="font-medium text-sm leading-none">India</h3>
+          <h3 className="font-medium text-sm leading-none dark:text-primary">India</h3>
           <p className="text-xs text-muted-foreground">Location</p>
         </div>
         <div className="space-y-1 cursor-pointer" onClick={() => open("https://www.instagram.com/tphfamily123/")}>
-          <h3 className="font-medium text-sm leading-none">@The Philanthropy House</h3>
+          <h3 className="font-medium text-sm leading-none dark:text-primary">@The Philanthropy House</h3>
           <p className="text-xs text-muted-foreground">Shares vision with</p>
         </div>
         <div className="space-y-1">
-          <h3 className="font-medium text-sm leading-none">10+ projects done</h3>
+          <h3 className="font-medium text-sm leading-none dark:text-primary">10+ projects done</h3>
           <p className="text-xs text-muted-foreground">Projects</p>
         </div>
       </div>
       <div className='flex flex-col space-y-5'>
         <div className='flex flex-col space-y-2.5'>
-          <h3 className='font-semibold leading-none tracking-tight capitalize'>{"<"}--- My Intrests ---{">"}</h3>
+          <h3 className='font-semibold leading-none tracking-tight capitalize dark:text-primary'>{"<"}--- My Intrests ---{">"}</h3>
           <div className='space-y-2 space-x-2'>
             <TooltipProvider>
               <Tooltip>
@@ -126,7 +126,7 @@ function TechStack() {
           </div>
         </div>
         <div className='flex flex-col space-y-2.5'>
-          <h3 className='font-semibold leading-none tracking-tight capitalize'>{"<"}--- Miscellaneous ---{">"}</h3>
+          <h3 className='font-semibold leading-none tracking-tight capitalize dark:text-primary'>{"<"}--- Miscellaneous ---{">"}</h3>
           <div className='space-y-2 space-x-2'>
             <TooltipProvider>
               <Tooltip>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
@@ -53,8 +53,54 @@ import { Label } from "@/components/ui/label"
 
 import morty from "@/assets/images/Morty.png";
 
+type ThemeType = 'dog' | 'cat' | 'system';
+// Cookie helpers
+const setCookie = (name: string, value: string, days = 365) => {
+  const expires = new Date(Date.now() + days * 86400000).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+};
+const getCookie = (name: string): string | undefined => {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : undefined;
+};
+// System theme check
+const getSystemPrefersDark = () =>
+  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 function Navbar() {
+
+  // theme handler
+  const [theme, setTheme] = useState<ThemeType>(() => {
+    const saved = getCookie('theme');
+    return (saved === 'cat' || saved === 'dog' || saved === 'system') ? saved : 'system';
+  });
+  // Detect system theme
+  useEffect(() => {
+    const root = document.getElementById('root');
+    const isDark = theme === 'cat' || (theme === 'system' && getSystemPrefersDark());
+
+    if (isDark) {
+      root?.classList.add('dark');
+    } else {
+      root?.classList.remove('dark');
+    }
+    // Save cookie
+    setCookie('theme', theme);
+  }, [theme]);
+  // Listen to OS preference changes if using system mode
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = (e: MediaQueryListEvent) => {
+      if (theme === 'system') {
+        const root = document.getElementById('root');
+        if (e.matches) root?.classList.add('dark');
+        else root?.classList.remove('dark');
+      }
+    };
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, [theme]);
+
 
   // email handler
   const [email] = useState("hydhexane@gmail.com");
@@ -69,7 +115,6 @@ function Navbar() {
   };
 
   //--- About Me ---
-
   const features = [
     "Watches Anime",
     "addicted to sleep",
@@ -77,7 +122,6 @@ function Navbar() {
     "used to live-code on yt",
     "85 WPM 💪"
   ];
-
   function MyListComponent({ items }: { items: string[] }) {
     return (
       <ul className="list-disc list-outside text-blue-500 pl-4"> {/* Tailwind classes for styling */}
@@ -90,7 +134,7 @@ function Navbar() {
 
   // const [position, setPosition] = React.useState("bottom")
   return (
-    <Badge variant="outline" className="flex flex-col space-y-1 sm:space-y-0 sm:flex-row w-full justify-between p-3 sticky top-0 z-50 bg-white shadow-xs h-fit">
+    <Badge variant="outline" className="flex flex-col space-y-1 sm:space-y-0 sm:flex-row w-full justify-between p-3 sticky top-0 z-50 dark:bg-background bg-background shadow-xs h-fit">
       {/* --- Name Tag --- */}
       <Drawer>
         <DrawerTrigger className="text-sm" asChild>
@@ -265,19 +309,21 @@ function Navbar() {
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button id="actionButton" variant={"outline"}><Dog /></Button>
+            <Button id="actionButton theme-face" variant={"outline"}>
+              {
+                theme == 'system' ? <PawPrint /> : theme == 'cat' ? <Cat /> : <Dog />
+              }
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                Cat
+              <DropdownMenuItem onClick={() => setTheme("cat")}>Cat
                 <DropdownMenuShortcut><Cat /></DropdownMenuShortcut>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                Dog
+              <DropdownMenuItem onClick={() => setTheme("dog")}>Dog
                 <DropdownMenuShortcut><Dog /></DropdownMenuShortcut>
               </DropdownMenuItem>
-              <DropdownMenuItem>System
+              <DropdownMenuItem onClick={() => setTheme("system")}>System
                 <DropdownMenuShortcut><PawPrint /></DropdownMenuShortcut>
               </DropdownMenuItem>
             </DropdownMenuGroup>

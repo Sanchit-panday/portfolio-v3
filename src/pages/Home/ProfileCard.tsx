@@ -33,8 +33,8 @@ function ProfileCard() {
                             <ProfileCardButton iconName={Link} content="Links" />
                         </>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-md text-center">
-                        <DialogTitle className="text-red-500 text-2xl font-bold">oops! 404</DialogTitle>
+                    <DialogContent className="sm:max-w-md text-center dark:bg-background">
+                        <DialogTitle className="text-red-500 text-2xl font-bold ">oops! 404</DialogTitle>
                         <h1 className="font-semibold text-xl">Still under work</h1>
                     </DialogContent>
                 </Dialog>

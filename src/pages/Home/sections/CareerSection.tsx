@@ -13,7 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 function CareerSection() {
   return (
     <>
-      <h2 className="text-2xl font-semibold tracking-tight">Education and Experience</h2>
+      <h2 className="text-2xl font-semibold tracking-tight dark:text-primary">Education and Experience</h2>
       <div className="space-y-4 sm:space-y-6 mt-5">
         <Card>
           <CardHeader className="gap-0">

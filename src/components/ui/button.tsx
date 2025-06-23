@@ -14,13 +14,14 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border bg-background shadow-xs text-primary hover:bg-accent hover:text-accent-foreground dark:te dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         none: "",
+        // TODO: complete this effect
         nfs_effect: "hover:z-[2] cursor-pointer rounded-md border bg-white p-3 ring-[#e5e226] transition-shadow hover:border-transparent hover:ring-3 hover:drop-shadow-lg hover:drop-shadow-amber-300/100 before:content-[''] before:absolute before:z-[-1] before:border-t-[5px] before:border-r-[30px] before:border-b-[5px] before:border-l-[0px] before:top-0 before:left-[-30px] before:border-t-transparent before:border-r-[#333] before:border-b-transparent before:border-l-transparent before:rotate-30"
       },
       size: {

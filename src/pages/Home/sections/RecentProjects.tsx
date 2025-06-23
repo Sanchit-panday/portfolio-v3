@@ -15,7 +15,7 @@ import projectData from '../data/projectData.json'
 function RecentProjects() {
     return (
         <>
-            <h2 className="text-2xl font-semibold tracking-tight">Latest Projects</h2>
+            <h2 className="text-2xl font-semibold tracking-tight dark:text-primary">Latest Projects</h2>
             <div className="space-y-4 sm:space-y-6 mt-5">
                 <Projects count={3} />
             </div>
