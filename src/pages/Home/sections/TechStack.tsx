@@ -8,9 +8,15 @@ import {
 } from "@/components/ui/tooltip"
 import { Button } from '@/components/ui/button'
 import { Separator } from "@/components/ui/separator"
-import { 
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+import {
   // useEffect,
-   useState } from "react"
+  useState
+} from "react"
 
 
 import { Howl } from 'howler';
@@ -79,7 +85,14 @@ function TechStack() {
           <p className="text-xs text-muted-foreground">Location</p>
         </div>
         <div className="space-y-1 cursor-pointer" onClick={() => open("https://www.instagram.com/tphfamily123/")}>
-          <h3 className="font-medium text-sm leading-none dark:text-primary">@The Philanthropy House</h3>
+          <h3 className="font-medium text-sm leading-none dark:text-primary">
+            <HoverCard openDelay={10} closeDelay={100}>
+              <HoverCardTrigger>@The Philanthropy House</HoverCardTrigger>
+              <HoverCardContent className="bg-foreground text-primary-foreground">
+                <div>The Philanthropy Hand group of KIIT Student Activity Centre are working on the Project “Addhyayan”, which focuses on One to One teaching underprivileged children</div>
+              </HoverCardContent>
+            </HoverCard>
+          </h3>
           <p className="text-xs text-muted-foreground">Shares vision with</p>
         </div>
         <div className="space-y-1">
